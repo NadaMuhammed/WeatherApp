@@ -14,6 +14,16 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildConfigField(
+            "String",
+            "API_KEY",
+            "\"${project.findProperty("API_KEY")}\""
+        )
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -46,6 +56,7 @@ dependencies {
     //retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
+    implementation(libs.logging.interceptor)
 
     //hilt
     implementation(libs.hilt.android)
