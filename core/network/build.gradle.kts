@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -41,6 +42,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    secrets {
+        propertiesFileName = "local.properties"
     }
 }
 
