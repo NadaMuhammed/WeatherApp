@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -52,6 +53,7 @@ dependencies {
     //retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
+    implementation(libs.kotlinx.serialization.json)
 
     //hilt
     implementation(libs.hilt.android)
