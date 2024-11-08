@@ -1,5 +1,7 @@
 package com.example.weatherapp.features.currentWeather.di
 
+import com.example.weatherapp.features.currentWeather.data.repository.CurrentWeatherRepositoryImpl
+import com.example.weatherapp.features.currentWeather.domain.repository.CurrentWeatherRepository
 import com.example.weatherapp.features.currentWeather.domain.useCases.GetCurrentWeatherUseCase
 import com.example.weatherapp.features.currentWeather.domain.useCases.GetCurrentWeatherUseCaseImpl
 import dagger.Binds
@@ -9,7 +11,10 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @InstallIn(ViewModelComponent::class)
 @Module
-fun interface CurrentWeatherBindingModule {
+interface CurrentWeatherBindingModule {
+
+    @Binds
+    fun bindCurrentWeatherRepository(currentWeatherRepositoryImpl: CurrentWeatherRepositoryImpl): CurrentWeatherRepository
 
     @Binds
     fun bindCurrentWeatherUseCase(getCurrentWeatherUseCaseImpl: GetCurrentWeatherUseCaseImpl): GetCurrentWeatherUseCase

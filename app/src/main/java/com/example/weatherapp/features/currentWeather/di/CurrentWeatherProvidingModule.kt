@@ -7,13 +7,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import retrofit2.Retrofit
-import javax.inject.Singleton
 
 @InstallIn(ViewModelComponent::class)
 @Module
 object CurrentWeatherProvidingModule {
 
-    @Singleton
     @Provides
     fun provideCurrentWeatherServices(retrofit: Retrofit): CurrentWeatherApi {
         return retrofit.create(CurrentWeatherApi::class.java)

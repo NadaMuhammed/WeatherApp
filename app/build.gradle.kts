@@ -29,6 +29,9 @@ android {
             )
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -53,9 +56,18 @@ dependencies {
     //retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.serialization.core)
 
     //hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    //lifecycle
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(projects.core.network)
 }
