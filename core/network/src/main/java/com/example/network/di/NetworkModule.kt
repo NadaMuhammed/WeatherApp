@@ -2,7 +2,8 @@ package com.example.network.di
 
 import com.example.network.interceptor.HeaderInterceptor
 import com.example.network.networkConfig.NetworkConfig
-import com.google.gson.Gson
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,7 +11,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
@@ -21,7 +21,7 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(
-        converter: GsonConverterFactory,
+        converter: MoshiConverterFactory,
         networkConfig: NetworkConfig,
         okHttpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
@@ -32,7 +32,11 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideConverter(): GsonConverterFactory = GsonConverterFactory.create()
+    fun provideMoshi(): Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+
+    @Singleton
+    @Provides
+    fun provideConverter(moshi: Moshi): MoshiConverterFactory = MoshiConverterFactory.create(moshi)
 
     @Singleton
     @Provides
