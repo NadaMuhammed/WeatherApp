@@ -4,5 +4,5 @@ import com.example.weatherapp.features.currentWeather.domain.entities.CurrentWea
 
 fun interface GetCurrentWeatherUseCase {
 
-    suspend fun invoke(country: String): CurrentWeatherDTO?
+    suspend fun invoke(country: String): CurrentWeatherDTO
 }

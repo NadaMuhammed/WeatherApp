@@ -4,5 +4,5 @@ import com.example.weatherapp.features.currentWeather.data.model.CurrentWeatherR
 
 fun interface CurrentWeatherRepository {
 
-    suspend fun getCurrentWeather(country: String): Result<CurrentWeatherResponse>
+    suspend fun getCurrentWeather(country: String): CurrentWeatherResponse
 }

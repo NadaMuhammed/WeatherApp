@@ -8,7 +8,7 @@ import javax.inject.Inject
 class CurrentWeatherRepositoryImpl @Inject constructor(private val api: CurrentWeatherApi) :
     CurrentWeatherRepository {
 
-    override suspend fun getCurrentWeather(country: String): Result<CurrentWeatherResponse> {
+    override suspend fun getCurrentWeather(country: String): CurrentWeatherResponse {
         return api.getCurrentWeather(country)
     }
 }

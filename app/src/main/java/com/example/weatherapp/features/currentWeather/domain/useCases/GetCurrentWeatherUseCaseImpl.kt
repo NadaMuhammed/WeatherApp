@@ -11,8 +11,8 @@ class GetCurrentWeatherUseCaseImpl @Inject constructor(
 ) :
     GetCurrentWeatherUseCase {
 
-    override suspend fun invoke(country: String): CurrentWeatherDTO? {
-        return repository.getCurrentWeather(country).getOrNull()?.let {
+    override suspend fun invoke(country: String): CurrentWeatherDTO {
+        return repository.getCurrentWeather(country).let {
             mapper.map(it)
         }
     }

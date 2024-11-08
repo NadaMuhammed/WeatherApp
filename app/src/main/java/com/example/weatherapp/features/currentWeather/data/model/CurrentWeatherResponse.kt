@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CurrentWeatherResponse(
     val location: Location,
-    val currentWeather: CurrentWeather
+    val current: CurrentWeather
 )
 
 @Serializable
@@ -43,7 +43,7 @@ data class CurrentWeather(
     @SerialName("last_updated")
     val lastUpdated: String? = null,
     @SerialName("temp_c")
-    val temperatureInCelsius: Double? = 24.0,
+    val temperatureInCelsius: Double? = 0.0,
     @SerialName("temp_f")
     val temperatureInFahrenheit: Double? = 0.0,
     @SerialName("is_day")
