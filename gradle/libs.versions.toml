@@ -5,6 +5,7 @@ androidxLifecycleViewmodelKtx = "2.5.1"
 converterMoshi = "2.9.0"
 fragmentKtx = "1.8.5"
 fragmentKtxVersion = "1.6.0"
+gson = "2.11.0"
 hiltAndroid = "2.51.1"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -41,7 +42,9 @@ androidx-lifecycle-viewmodel-ktx-v241 = { module = "androidx.lifecycle:lifecycle
 androidx-lifecycle-viewmodel-ktx-v251 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidxLifecycleViewmodelKtx" }
 androidx-navigation-fragment-ktx-v260 = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtxVersion" }
 androidx-navigation-ui-ktx-v260 = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterMoshi" }
 converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converterMoshi" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

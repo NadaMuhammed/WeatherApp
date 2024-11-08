@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.kotlinx.serialization.core)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.gson)
 
     //hilt
     implementation(libs.hilt.android)

@@ -2,6 +2,7 @@ package com.example.network.di
 
 import com.example.network.interceptor.HeaderInterceptor
 import com.example.network.networkConfig.NetworkConfig
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
@@ -19,7 +21,7 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(
-        converter: MoshiConverterFactory,
+        converter: GsonConverterFactory,
         networkConfig: NetworkConfig,
         okHttpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
@@ -30,7 +32,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideConverter(): MoshiConverterFactory = MoshiConverterFactory.create()
+    fun provideConverter(): GsonConverterFactory = GsonConverterFactory.create()
 
     @Singleton
     @Provides
