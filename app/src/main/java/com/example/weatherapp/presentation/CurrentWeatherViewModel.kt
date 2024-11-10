@@ -1,4 +1,4 @@
-package com.example.weatherapp.features.currentWeather.presentation
+package com.example.weatherapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
