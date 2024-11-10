@@ -1,6 +1,6 @@
-package com.example.weatherapp.features.currentWeather.data.api
+package com.example.weatherapp.data.api
 
-import com.example.weatherapp.features.currentWeather.data.model.CurrentWeatherResponse
+import com.example.weatherapp.data.model.CurrentWeatherResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,6 +1,6 @@
-package com.example.weatherapp.features.currentWeather.domain.repository
+package com.example.weatherapp.domain.repository
 
-import com.example.weatherapp.features.currentWeather.data.model.CurrentWeatherResponse
+import com.example.weatherapp.data.model.CurrentWeatherResponse
 
 fun interface CurrentWeatherRepository {
 

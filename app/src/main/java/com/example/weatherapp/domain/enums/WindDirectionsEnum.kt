@@ -1,4 +1,4 @@
-package com.example.weatherapp.features.currentWeather.domain.enums
+package com.example.weatherapp.domain.enums
 
 enum class WindDirectionsEnum {
     North,

@@ -1,6 +1,6 @@
 package com.example.weatherapp.features.currentWeather.domain.entities
 
-import com.example.weatherapp.features.currentWeather.domain.enums.DayOrNightEnum
+import com.example.weatherapp.domain.enums.DayOrNightEnum
 
 data class CurrentWeatherDTO(
     val name: String? = null,

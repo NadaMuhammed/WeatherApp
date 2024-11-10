@@ -1,8 +1,8 @@
-package com.example.weatherapp.features.currentWeather.domain.useCases
+package com.example.weatherapp.domain.useCases
 
 import com.example.weatherapp.features.currentWeather.domain.entities.CurrentWeatherDTO
-import com.example.weatherapp.features.currentWeather.domain.mappers.CurrentWeatherMapper
-import com.example.weatherapp.features.currentWeather.domain.repository.CurrentWeatherRepository
+import com.example.weatherapp.domain.mappers.CurrentWeatherMapper
+import com.example.weatherapp.domain.repository.CurrentWeatherRepository
 import javax.inject.Inject
 
 class GetCurrentWeatherUseCaseImpl @Inject constructor(

@@ -1,10 +1,10 @@
-package com.example.weatherapp.presentation
+package com.example.weatherapp.presentation.currentWeather
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.features.currentWeather.domain.entities.CurrentWeatherDTO
-import com.example.weatherapp.features.currentWeather.domain.enums.DayOrNightEnum
-import com.example.weatherapp.features.currentWeather.domain.useCases.GetCurrentWeatherUseCase
+import com.example.weatherapp.domain.enums.DayOrNightEnum
+import com.example.weatherapp.domain.useCases.GetCurrentWeatherUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

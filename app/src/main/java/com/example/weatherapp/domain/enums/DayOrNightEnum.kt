@@ -1,4 +1,4 @@
-package com.example.weatherapp.features.currentWeather.domain.enums
+package com.example.weatherapp.domain.enums
 
 enum class DayOrNightEnum(val isDay: Int) {
     Night(0),

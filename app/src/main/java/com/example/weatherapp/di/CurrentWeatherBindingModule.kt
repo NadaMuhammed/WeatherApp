@@ -1,9 +1,9 @@
-package com.example.weatherapp.features.currentWeather.di
+package com.example.weatherapp.di
 
-import com.example.weatherapp.features.currentWeather.data.repository.CurrentWeatherRepositoryImpl
-import com.example.weatherapp.features.currentWeather.domain.repository.CurrentWeatherRepository
-import com.example.weatherapp.features.currentWeather.domain.useCases.GetCurrentWeatherUseCase
-import com.example.weatherapp.features.currentWeather.domain.useCases.GetCurrentWeatherUseCaseImpl
+import com.example.weatherapp.data.repository.CurrentWeatherRepositoryImpl
+import com.example.weatherapp.domain.repository.CurrentWeatherRepository
+import com.example.weatherapp.domain.useCases.GetCurrentWeatherUseCase
+import com.example.weatherapp.domain.useCases.GetCurrentWeatherUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,7 +1,7 @@
-package com.example.weatherapp.features.currentWeather.di
+package com.example.weatherapp.di
 
-import com.example.weatherapp.features.currentWeather.data.api.CurrentWeatherApi
-import com.example.weatherapp.features.currentWeather.domain.mappers.CurrentWeatherMapper
+import com.example.weatherapp.data.api.CurrentWeatherApi
+import com.example.weatherapp.domain.mappers.CurrentWeatherMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

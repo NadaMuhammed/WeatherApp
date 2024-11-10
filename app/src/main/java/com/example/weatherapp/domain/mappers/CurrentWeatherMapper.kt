@@ -1,9 +1,9 @@
-package com.example.weatherapp.features.currentWeather.domain.mappers
+package com.example.weatherapp.domain.mappers
 
-import com.example.weatherapp.features.currentWeather.data.model.CurrentWeatherResponse
+import com.example.weatherapp.data.model.CurrentWeatherResponse
 import com.example.weatherapp.features.currentWeather.domain.entities.CurrentWeatherDTO
-import com.example.weatherapp.features.currentWeather.domain.enums.DayOrNightEnum
-import com.example.weatherapp.features.currentWeather.domain.enums.WindDirectionsEnum
+import com.example.weatherapp.domain.enums.DayOrNightEnum
+import com.example.weatherapp.domain.enums.WindDirectionsEnum
 
 class CurrentWeatherMapper {
     fun map(currentWeatherResponse: CurrentWeatherResponse): CurrentWeatherDTO {

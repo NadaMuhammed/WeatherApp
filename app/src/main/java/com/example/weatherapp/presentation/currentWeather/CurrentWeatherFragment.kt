@@ -1,4 +1,4 @@
-package com.example.weatherapp.presentation
+package com.example.weatherapp.presentation.currentWeather
 
 import android.os.Bundle
 import android.telephony.TelephonyManager
