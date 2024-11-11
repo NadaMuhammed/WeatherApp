@@ -38,10 +38,11 @@ class CurrentWeatherFragment : Fragment() {
     }
 
     private fun getCountry(): String {
-        return Locale(
-            "",
-            (context?.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).simCountryIso
-        ).displayCountry
+//        return Locale(
+//            "",
+//            (context?.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).simCountryIso
+//        ).displayCountry
+        return "Egypt"
     }
 
     private fun setBackground() {
