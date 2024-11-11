@@ -1,4 +1,4 @@
-package com.example.weatherapp.features.currentWeather.domain.entities
+package com.example.weatherapp.domain.entities
 
 import com.example.weatherapp.domain.enums.DayOrNightEnum
 

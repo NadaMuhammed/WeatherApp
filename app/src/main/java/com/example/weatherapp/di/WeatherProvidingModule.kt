@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 
 @InstallIn(ViewModelComponent::class)
 @Module
-object CurrentWeatherProvidingModule {
+object WeatherProvidingModule {
 
     @Provides
     fun provideCurrentWeatherServices(retrofit: Retrofit): CurrentWeatherApi {

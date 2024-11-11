@@ -1,12 +1,12 @@
-package com.example.weatherapp.domain.useCases
+package com.example.weatherapp.domain.useCases.currentWeather
 
-import com.example.weatherapp.features.currentWeather.domain.entities.CurrentWeatherDTO
+import com.example.weatherapp.domain.entities.CurrentWeatherDTO
 import com.example.weatherapp.domain.mappers.CurrentWeatherMapper
-import com.example.weatherapp.domain.repository.CurrentWeatherRepository
+import com.example.weatherapp.domain.repository.WeatherRepository
 import javax.inject.Inject
 
 class GetCurrentWeatherUseCaseImpl @Inject constructor(
-    private val repository: CurrentWeatherRepository,
+    private val repository: WeatherRepository,
     private val mapper: CurrentWeatherMapper
 ) :
     GetCurrentWeatherUseCase {
