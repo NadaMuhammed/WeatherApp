@@ -20,7 +20,7 @@ class CurrentWeatherViewModel @Inject constructor(private val useCase: GetCurren
     )
     val currentWeather: StateFlow<CurrentWeatherDTO> = _currentWeather
 
-    private val _condition: MutableStateFlow<ConditionEnum?> = MutableStateFlow(ConditionEnum.Night)
+    private val _condition: MutableStateFlow<ConditionEnum?> = MutableStateFlow(null)
     val condition: StateFlow<ConditionEnum?> = _condition
 
     fun getWeatherForCountry(country: String) {
