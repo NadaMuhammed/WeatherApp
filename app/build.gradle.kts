@@ -77,4 +77,7 @@ dependencies {
 
     //network
     implementation(projects.core.network)
+
+    //ui
+    implementation(projects.core.ui)
 }

@@ -24,3 +24,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "WeatherApp"
 include(":app")
 include(":core:network")
+include(":core:ui")
