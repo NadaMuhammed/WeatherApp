@@ -2,6 +2,8 @@ package com.example.network.di
 
 import com.example.network.interceptor.HeaderInterceptor
 import com.example.network.networkConfig.NetworkConfig
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +32,11 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideConverter(): MoshiConverterFactory = MoshiConverterFactory.create()
+    fun provideMoshi(): Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+
+    @Singleton
+    @Provides
+    fun provideConverter(moshi: Moshi): MoshiConverterFactory = MoshiConverterFactory.create(moshi)
 
     @Singleton
     @Provides
