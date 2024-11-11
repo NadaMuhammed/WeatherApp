@@ -1,5 +1,6 @@
 package com.example.weatherapp.domain.entities
 
+import com.example.weatherapp.domain.enums.ConditionEnum
 import com.example.weatherapp.domain.enums.DayOrNightEnum
 
 data class CurrentWeatherDTO(
@@ -7,8 +8,9 @@ data class CurrentWeatherDTO(
     val region: String? = null,
     val country: String? = null,
     val temperature: Double? = 0.0,
-    val isDayOrNight: DayOrNightEnum,
-    val condition: String? = null,
+    val isDayOrNight: DayOrNightEnum? = null,
+    val condition: ConditionEnum? = null,
+    val conditionText: String? = null,
     val windDirection: String? = null,
     val humidity: Int? = 0,
 )
