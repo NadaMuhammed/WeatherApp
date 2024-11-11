@@ -50,11 +50,11 @@ class CurrentWeatherFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.condition.drop(1).collect {
                 when (it) {
-                    ConditionEnum.Night -> fadeInBackgroundImage(binding.root, R.drawable.night_bg)
+                    ConditionEnum.Night -> binding.root.fadeInBackgroundImage(R.drawable.night_bg)
 
-                    ConditionEnum.Sunny -> fadeInBackgroundImage(binding.root, R.drawable.sunny_bg)
+                    ConditionEnum.Sunny -> binding.root.fadeInBackgroundImage(R.drawable.sunny_bg)
 
-                    else -> fadeInBackgroundImage(binding.root, R.drawable.cloudy_bg)
+                    else -> binding.root.fadeInBackgroundImage(R.drawable.cloudy_bg)
                 }
             }
         }

@@ -6,10 +6,10 @@ import androidx.core.content.ContextCompat
 
 object BackgroundUtils {
 
-    fun fadeInBackgroundImage(image: View, newImageRes: Int) {
-        val transparentDrawable = ContextCompat.getDrawable(image.context, android.R.color.transparent)
-        val transitionDrawable = TransitionDrawable(arrayOf(transparentDrawable, ContextCompat.getDrawable(image.context, newImageRes)))
-        image.background = transitionDrawable
+    fun View.fadeInBackgroundImage(newImageRes: Int) {
+        val transparentDrawable = ContextCompat.getDrawable(context, android.R.color.transparent)
+        val transitionDrawable = TransitionDrawable(arrayOf(transparentDrawable, ContextCompat.getDrawable(context, newImageRes)))
+        background = transitionDrawable
         transitionDrawable.startTransition(200)
     }
 }
