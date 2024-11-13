@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity.TELEPHONY_SERVICE
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,6 +15,7 @@ import com.example.ui.BackgroundUtils.fadeInBackgroundImage
 import com.example.ui.R
 import com.example.weatherapp.databinding.FragmentCurrentWeatherBinding
 import com.example.weatherapp.domain.enums.ConditionEnum
+import com.example.weatherapp.domain.enums.DayOrNightEnum
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
@@ -36,7 +39,7 @@ class CurrentWeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getWeatherForCountry(getCountry())
-        setBackground()
+        setUpUI()
     }
 
     private fun getCountry(): String {
@@ -46,15 +49,50 @@ class CurrentWeatherFragment : Fragment() {
         ).displayCountry
     }
 
+    private fun setUpUI() {
+        setBackground()
+        setCurrentWeatherUi()
+    }
+
+    private fun setCurrentWeatherUi() {
+        lifecycleScope.launch {
+            viewModel.currentWeather.drop(1).collect {
+                with(binding) {
+                    setWeatherIcon(it.condition)
+                    tvCityName.text = it.region
+                    tvTemperature.text = getString(R.string.temperatureInCelsius, it.temperature.toString())
+                    tvWeatherCondition.text = it.conditionText
+                }
+            }
+        }
+    }
+
+    private fun setWeatherIcon(condition: ConditionEnum?) {
+        with(binding.icCurrentWeather){
+            when(condition){
+                ConditionEnum.Rainy -> setImageResource(R.drawable.ic_rainy)
+                ConditionEnum.Cloudy -> setImageResource(R.drawable.ic_cloudy)
+                ConditionEnum.Sunny -> setImageResource(R.drawable.ic_sunny)
+                ConditionEnum.ClearNight -> setImageResource(R.drawable.ic_night)
+                ConditionEnum.Snowy -> setImageResource(R.drawable.ic_snow)
+                else -> isVisible = false
+            }
+        }
+    }
+
     private fun setBackground() {
         lifecycleScope.launch {
-            viewModel.condition.drop(1).collect {
+            viewModel.isDayOrNight.drop(1).collect {
                 when (it) {
-                    ConditionEnum.Night -> binding.root.fadeInBackgroundImage(R.drawable.night_bg)
+                    DayOrNightEnum.Night -> {
+                        binding.root.fadeInBackgroundImage(R.drawable.night_bg)
+                        binding.tvWeatherCondition.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_grey))
+                    }
 
-                    ConditionEnum.Sunny -> binding.root.fadeInBackgroundImage(R.drawable.sunny_bg)
-
-                    else -> binding.root.fadeInBackgroundImage(R.drawable.cloudy_bg)
+                    else -> {
+                        binding.root.fadeInBackgroundImage(R.drawable.sunny_bg)
+                        binding.tvWeatherCondition.setTextColor(ContextCompat.getColor(requireContext(), R.color.dark_grey))
+                    }
                 }
             }
         }

@@ -16,10 +16,8 @@ class CurrentWeatherMapper {
                 temperature = current.temperatureInCelsius,
                 isDayOrNight = DayOrNightEnum.fromIsDay(current.isDay),
                 condition = ConditionEnum.fromCondition(
-                    isCloudy = current.condition.text?.toLowerCase()?.contains(
-                        "cloudy"
-                    ) ?: false,
-                    isDay = current.isDay
+                    DayOrNightEnum.fromIsDay(current.isDay),
+                    current.condition.text?.toLowerCase()
                 ),
                 conditionText = current.condition.text,
                 windDirection = WindDirectionsEnum.fromWindDirection(
