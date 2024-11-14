@@ -9,7 +9,6 @@ data class CurrentWeatherDTO(
     val country: String? = null,
     val temperature: Double? = 0.0,
     val isDayOrNight: DayOrNightEnum? = null,
-    val condition: ConditionEnum? = null,
     val conditionText: String? = null,
     val windDirection: String? = null,
     val humidity: Int? = 0,

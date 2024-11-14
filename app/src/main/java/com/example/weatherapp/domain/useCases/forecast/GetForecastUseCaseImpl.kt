@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetForecastUseCaseImpl @Inject constructor(private val repository: WeatherRepository): GetForecastUseCase {
 
-    override suspend fun getForecast(country: String, days: Int?): WeeklyForecastResponse {
+    override suspend fun invoke(country: String, days: Int?): WeeklyForecastResponse {
         return repository.getForecast(country, days)
     }
 }

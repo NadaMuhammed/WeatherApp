@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 data class WeeklyForecastResponse(
     val location: Location,
     val current: CurrentWeather,
-    val forecast: List<Forecast>
+    val forecast: Forecast
 )
 
 data class Forecast(

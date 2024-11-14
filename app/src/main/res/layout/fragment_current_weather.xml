@@ -36,18 +36,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
+        android:textColor="@color/light_grey"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTemperature"
-        tools:text="Partly cloudy"
-        android:textColor="@color/light_grey" />
+        tools:text="Partly cloudy" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvWeatherCondition"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvWeatherCondition"
-        android:background="@drawable/rv_background"/>
+        tools:listitem="@layout/weekly_forecast_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
