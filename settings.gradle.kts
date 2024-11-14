@@ -25,3 +25,4 @@ rootProject.name = "WeatherApp"
 include(":app")
 include(":core:network")
 include(":core:ui")
+include(":core:utils")
