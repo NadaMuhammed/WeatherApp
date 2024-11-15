@@ -2,8 +2,6 @@ package com.example.weatherapp.di
 
 import com.example.weatherapp.data.repository.WeatherRepositoryImpl
 import com.example.weatherapp.domain.repository.WeatherRepository
-import com.example.weatherapp.domain.useCases.currentWeather.GetCurrentWeatherUseCase
-import com.example.weatherapp.domain.useCases.currentWeather.GetCurrentWeatherUseCaseImpl
 import com.example.weatherapp.domain.useCases.forecast.GetForecastUseCase
 import com.example.weatherapp.domain.useCases.forecast.GetForecastUseCaseImpl
 import dagger.Binds
@@ -17,9 +15,6 @@ interface WeatherBindingModule {
 
     @Binds
     fun bindCurrentWeatherRepository(weatherRepositoryImpl: WeatherRepositoryImpl): WeatherRepository
-
-    @Binds
-    fun bindCurrentWeatherUseCase(getCurrentWeatherUseCaseImpl: GetCurrentWeatherUseCaseImpl): GetCurrentWeatherUseCase
 
     @Binds
     fun bindForecastUseCase(getForecastUseCaseImpl: GetForecastUseCaseImpl): GetForecastUseCase

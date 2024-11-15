@@ -12,7 +12,7 @@ class GetForecastUseCaseImpl @Inject constructor(
 
     override suspend fun invoke(country: String, days: Int?): ForecastDTO {
         repository.getForecast(country, days).let {
-            return mapper.map(it.forecast)
+            return mapper.map(it)
         }
     }
 }

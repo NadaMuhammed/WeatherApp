@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.domain.entities.CurrentWeatherDTO
 import com.example.weatherapp.domain.entities.ForecastDTO
 import com.example.weatherapp.domain.enums.DayOrNightEnum
-import com.example.weatherapp.domain.useCases.currentWeather.GetCurrentWeatherUseCase
 import com.example.weatherapp.domain.useCases.forecast.GetForecastUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,10 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CurrentWeatherViewModel @Inject constructor(
-    private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase,
     private val getForecastUseCase: GetForecastUseCase
-) :
-    ViewModel() {
+) : ViewModel() {
 
     private val _currentWeather: MutableStateFlow<CurrentWeatherDTO> = MutableStateFlow(
         CurrentWeatherDTO()
@@ -32,23 +29,15 @@ class CurrentWeatherViewModel @Inject constructor(
     val forecast: StateFlow<ForecastDTO?> = _forecast
 
     fun setCountry(country: String){
-        getWeatherForCountry(country)
         getForecast(country, 7)
-    }
-
-    private fun getWeatherForCountry(country: String) {
-        viewModelScope.launch {
-            getCurrentWeatherUseCase.invoke(country).let {
-                _currentWeather.value = it
-                _isDayOrNight.value = it.isDayOrNight
-            }
-        }
     }
 
     private fun getForecast(country: String, days: Int) {
         viewModelScope.launch {
             getForecastUseCase.invoke(country, days).let {
                 _forecast.value = it
+                _currentWeather.value = it.currentForecast ?: CurrentWeatherDTO()
+                _isDayOrNight.value = it.currentForecast?.isDayOrNight
             }
         }
     }
