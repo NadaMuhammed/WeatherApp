@@ -9,8 +9,9 @@ data class WeeklyForecastResponse(
     val forecast: Forecast
 )
 
+@JsonClass(generateAdapter = true)
 data class Forecast(
-    val forecastDay: List<ForecastDay>? = emptyList()
+    @Json(name = "forecastday") val forecastDay: List<ForecastDay>? = emptyList()
 )
 
 data class ForecastDay(

@@ -1,7 +1,9 @@
 package com.example.weatherapp.di
 
+import com.example.utils.TimeFormatter
 import com.example.weatherapp.data.api.CurrentWeatherApi
 import com.example.weatherapp.domain.mappers.CurrentWeatherMapper
+import com.example.weatherapp.domain.mappers.ForecastMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,5 +20,9 @@ object WeatherProvidingModule {
     }
 
     @Provides
-    fun provideMapper(): CurrentWeatherMapper = CurrentWeatherMapper()
+    fun provideCurrentWeatherMapper(): CurrentWeatherMapper = CurrentWeatherMapper()
+
+    @Provides
+    fun provideForecastMapper(timeFormatter: TimeFormatter): ForecastMapper =
+        ForecastMapper(timeFormatter)
 }

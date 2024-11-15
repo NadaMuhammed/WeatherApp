@@ -23,6 +23,9 @@ import java.util.Locale
 class CurrentWeatherFragment : Fragment() {
     private val viewModel: CurrentWeatherViewModel by viewModels()
     private lateinit var binding: FragmentCurrentWeatherBinding
+    private val dailyWeatherAdapter: DailyForecastAdapter by lazy {
+        DailyForecastAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,6 +52,18 @@ class CurrentWeatherFragment : Fragment() {
     private fun setUpUI() {
         setBackground()
         setCurrentWeatherUi()
+        setDailyWeatherRv()
+    }
+
+    private fun setDailyWeatherRv() {
+        lifecycleScope.launch {
+            viewModel.forecast.drop(1).collect{
+                with(binding){
+                    rvDailyWeather.adapter = dailyWeatherAdapter
+                    dailyWeatherAdapter.submitList(it?.dailyWeatherList)
+                }
+            }
+        }
     }
 
     private fun setCurrentWeatherUi() {

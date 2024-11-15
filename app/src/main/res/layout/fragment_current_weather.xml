@@ -44,12 +44,14 @@
         tools:text="Partly cloudy" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDailyWeather"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvWeatherCondition"
+        tools:itemCount="7"
         tools:listitem="@layout/weekly_forecast_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

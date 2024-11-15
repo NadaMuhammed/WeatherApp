@@ -80,4 +80,7 @@ dependencies {
 
     //ui
     implementation(projects.core.ui)
+
+    //utils
+    implementation(projects.core.utils)
 }
