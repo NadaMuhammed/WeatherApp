@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity.TELEPHONY_SERVICE
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ui.BackgroundUtils.fadeInBackgroundImage
 import com.example.ui.R
 import com.example.weatherapp.databinding.FragmentCurrentWeatherBinding
@@ -25,6 +26,9 @@ class CurrentWeatherFragment : Fragment() {
     private lateinit var binding: FragmentCurrentWeatherBinding
     private val dailyWeatherAdapter: DailyForecastAdapter by lazy {
         DailyForecastAdapter()
+    }
+    private val hourlyWeatherAdapter: HourlyForecastAdapter by lazy {
+        HourlyForecastAdapter()
     }
 
     override fun onCreateView(
@@ -57,10 +61,14 @@ class CurrentWeatherFragment : Fragment() {
 
     private fun setDailyWeatherRv() {
         lifecycleScope.launch {
-            viewModel.forecast.drop(1).collect{
-                with(binding){
+            viewModel.forecast.drop(1).collect {
+                with(binding) {
                     rvDailyWeather.adapter = dailyWeatherAdapter
                     dailyWeatherAdapter.submitList(it?.dailyWeatherList)
+
+                    rvHourlyWeather.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                    rvHourlyWeather.adapter = hourlyWeatherAdapter
+                    hourlyWeatherAdapter.submitList(it?.hourlyWeatherList)
                 }
             }
         }
@@ -71,7 +79,8 @@ class CurrentWeatherFragment : Fragment() {
             viewModel.currentWeather.drop(1).collect {
                 with(binding) {
                     tvCityName.text = it.region
-                    tvTemperature.text = getString(R.string.temperatureInCelsius, it.temperature.toString())
+                    tvTemperature.text =
+                        getString(R.string.temperatureInCelsius, it.temperature.toString())
                     tvWeatherCondition.text = it.conditionText
                 }
             }

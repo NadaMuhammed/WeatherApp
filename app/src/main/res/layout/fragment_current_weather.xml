@@ -44,11 +44,13 @@
         tools:text="Partly cloudy" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHourlyWeather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/rvDailyWeather"
         app:layout_constraintTop_toBottomOf="@id/tvWeatherCondition"
-        tools:listitem="@layout/hourly_forecast_item" />
+        tools:listitem="@layout/hourly_forecast_item"
+        android:layout_marginHorizontal="20dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDailyWeather"

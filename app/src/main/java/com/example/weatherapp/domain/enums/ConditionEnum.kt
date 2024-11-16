@@ -14,7 +14,7 @@ enum class ConditionEnum {
                 condition.isNullOrEmpty() -> Unknown
                 "clear" in condition && isDay == DayOrNightEnum.Night -> ClearNight
                 "cloud" in condition || "overcast" in condition || "wind" in condition || "mist" in condition -> Cloudy
-                ("clear" in condition || "sunny" in condition) && isDay == DayOrNightEnum.Day -> Sunny
+                ("clear" in condition || "sunny" in condition) && (isDay == DayOrNightEnum.Day || isDay == null) -> Sunny
                 "snow" in condition -> Snowy
                 "rain" in condition -> Rainy
                 else -> Unknown
