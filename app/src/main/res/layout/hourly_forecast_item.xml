@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2 PM" />
+
+    <ImageView
+        android:id="@+id/icWeatherCondition"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHour"
+        tools:src="@drawable/ic_cloudy" />
+
+    <TextView
+        android:id="@+id/tvWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icWeatherCondition"
+        tools:text="18" />
+</androidx.constraintlayout.widget.ConstraintLayout>
